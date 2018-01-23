@@ -1,23 +1,22 @@
 console.log("JS is connected to the html page");
+// window.onload = function(){
+//
+// }
 
-
-window.onload = function(){
-
-var inputTag = document.getElementById("inputTag");
-console.log(inputTag);
-
-
+// Selecting elements 1
   var submitButton = document.getElementById("submitButton");
   submitButton.addEventListener("click", function(){
     console.log("submit button was clicked");
-    console.log(inputTag);
+    alert("The text you entered was: " + inputTag.value);
   });
 
+//Selecting elements 2
+  var codeButton = document.getElementById("codeButton")
+  codeButton.addEventListener("click", function () {
+    var code = document.getElementsByTagName("code");
+    for (var i = 0; i < code.length; i++) {
+      console.log(code[i]);
+    }
+  });
 
-
-
-
-
-
-
-}
+// Working with DOM

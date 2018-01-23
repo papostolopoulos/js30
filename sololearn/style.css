@@ -1,4 +1,16 @@
+body {
+  font-family: arial;
+}
+
 h1 {
   color: blue;
-  font-family: arial;
+}
+
+.divCode {
+  background-color: pink;
+  width: 80%;
+  border-style: solid;
+  border-color: red;
+  border-width: 2px;
+  padding: 5px;
 }

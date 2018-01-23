@@ -8,11 +8,139 @@
   </head>
   <body>
     <h1>Sololearn Practice file</h1>
+    <section class="allArticles">
+      <article class="articleContent">
+        <h2>Selecting elements (1)</h2>
+        <div class="divDescription">
+          <p>All HTML elements are objects. And as we know every object has properties and methods.
+            The document object has methods that allow you to select the desired HTML element.
+            These three methods are the most commonly used for selecting HTML elements:</p>
+          </div>
 
-    <form class="" method="get">
-      <input type="text" name="" value="" id="inputTag">
-      <button type="submit" name="button" id="submitButton">Submit</button>
-    </form>
+          <div class="divCode">
+            <code>//finds element by id <br>
+              document.getElementById(id)<br>
+
+              //finds elements by class name<br>
+              document.getElementsByClassName(name)<br>
+
+              //finds elements by tag name<br>
+              document.getElementsByTagName(name)</code>
+            </div>
+
+            <div class="divExample">
+              <h3>Example:</h3>
+              <p>Enter some text in the input slot and click the submit button</p>
+              <form class="" method="get">
+                <input type="text" name="" value="" id="inputTag">
+                <button type="button" name="submitButton" id="submitButton">Submit</button>
+              </form>
+            </div>
+      </article>
+
+      <article class="articleContent">
+        <h2>Selecting elements (2)</h2>
+        <div class="divDescription">
+          <p>The getElementsByClassName() method finds all elements by class name
+            and returns them as an array.<br>
+            For example, if our HTML page contained three elements with class="demo",
+            the following code would return all those elements as an array:
+          </p>
+        </div>
+        <div class="divCode" id="divCode1">
+          <code>var arr =  document.getElementsByClassName("demo");<br>
+            //accessing the second element <br>
+            arr[1].innerHTML = "Hi";</code>
+        </div>
+        <div class="divDescription">
+          <p>Similarly, the getElementsByTagName method returns all of the elements
+            of the specified tag name as an array.<br>
+            The following example gets all paragraph elements of the page and
+            changes their content:</p>
+        </div>
+        <div class="divCode" id="divCode2">
+          <code>
+            &lt;p&gt;hi&lt;/p&gt;<br>
+            &lt;p&gt;hello&lt;/p&gt;<br>
+            &lt;p&gt;hi&lt;/p&gt;<br>
+            &lt;script&gt;<br>
+            var arr = document.getElementsByTagName("p");<br>
+            for (var x = 0; x &lt; arr.length; x++) {<br>
+              arr[x].innerHTML = "Hi there";<br>
+            }<br>
+            &lt;/script&gt;<br>
+          </code>
+        </div>
+        .<div class="divDescription">
+          <p>The script will result in the following HTML:</p>
+        </div>
+        <div class="divCode" id="divCode3">
+          <code>
+            &lt;p&gt;Hi there&lt;/p&gt;<br>
+            &lt;p&gt;Hi there&lt;/p&gt;<br>
+            &lt;p&gt;Hi there&lt;/p&gt;<br>
+          </code>
+        </div>
+        <div class="divExample">
+          <h3>Example:</h3>
+          <p>Click on the following button to view in the console all the code tags in the page</p>
+          <button type="button" name="codeButton" id="codeButton">Get all the code tags</button>
+        </div>
+      </article>
+
+      <article class="articleContent">
+        <h2>Working with DOM</h2>
+        <div class="divDescription">
+          <p>
+            Each element in the DOM has a set of properties and methods that provide
+            information about their relationships in the DOM:</p>
+            <ul>
+              <li>element.childNodes returns an array of an element's child nodes.</li>
+              <li>element.firstChild returns the first child node of an element.</li>
+              <li>element.lastChild returns the last child node of an element.</li>
+              <li>element.hasChildNodes returns true if an element has any child nodes, otherwise false.</li>
+              <li>element.nextSibling returns the next node at the same tree level.</li>
+              <li>element.previousSibling returns the previous node at the same tree level.</li>
+              <li>element.parentNode returns the parent node of an element.</li>
+            </ul>
+            <p>
+            We can, for example, select all child nodes of an element and change their content:
+          </p>
+        </div>
+
+        <div class="divCode">
+          <code>
+            &lt;html&gt; <br>
+            &lt;body&gt; <br>
+            &lt;div id ="demo"&gt; <br>
+            &lt;p&gt;some text&lt;/p&gt; <br>
+            &lt;p&gt;some other text&lt;/p&gt; <br>
+            &lt;/div&gt; <br>
+
+            &lt;script&gt; <br>
+            var a = document.getElementById("demo");
+            var arr = a.childNodes;
+            for(var x=0;x&lt;arr.length;x++) {
+              arr[x].innerHTML = "new text";
+            }
+            &lt;/script&gt; <br>
+
+            &lt;/body&gt; <br>
+            &lt;/html&gt; <br>
+          </code>
+        </div>
+
+        <div class="divExample" id="divExampleWorkingWithDom">
+            <p>I am a paragraph, change me</p>
+            <p>I am another paragraph, change me</p>
+            <p>What are you waiting for? change me</p>
+            <form class="" method="get">
+              <input type="text" name="inputWorkingWithDom" value="" id="inputWorkingWithDom">
+              <button type="button" name="buttonWorkingWithDom" id="buttonWorkingWithDom"></button>
+            </form>
+        </div>
+      </article>
+    </section>
 
     <script type="text/javascript" src="main.js"></script>
 
