@@ -8,9 +8,10 @@
   </head>
   <body>
     <h1>Sololearn Practice file</h1>
-    <section class="allArticles">
+    <section class="allArticles" id="selectingElements">
+      <h2>1. Selecting Elements</h2>
       <article class="articleContent">
-        <h2>Selecting elements (1)</h2>
+        <h3>Selecting elements (1)</h3>
         <div class="divDescription">
           <p>All HTML elements are objects. And as we know every object has properties and methods.
             The document object has methods that allow you to select the desired HTML element.
@@ -29,7 +30,7 @@
             </div>
 
             <div class="divExample">
-              <h3>Example:</h3>
+              <h4>Example:</h4>
               <p>Enter some text in the input slot and click the submit button</p>
               <form class="" method="get">
                 <input type="text" name="" value="" id="inputTag">
@@ -39,7 +40,7 @@
       </article>
 
       <article class="articleContent">
-        <h2>Selecting elements (2)</h2>
+        <h3>Selecting elements (2)</h3>
         <div class="divDescription">
           <p>The getElementsByClassName() method finds all elements by class name
             and returns them as an array.<br>
@@ -82,14 +83,14 @@
           </code>
         </div>
         <div class="divExample">
-          <h3>Example:</h3>
+          <h4>Example:</h4>
           <p>Click on the following button to view in the console all the code tags in the page</p>
           <button type="button" name="codeButton" id="codeButton">Get all the code tags</button>
         </div>
       </article>
 
       <article class="articleContent">
-        <h2>Working with DOM</h2>
+        <h3>Working with DOM</h3>
         <div class="divDescription">
           <p>
             Each element in the DOM has a set of properties and methods that provide
@@ -136,10 +137,83 @@
             <p>What are you waiting for? change me</p>
             <form class="" method="get">
               <input type="text" name="inputWorkingWithDom" value="" id="inputWorkingWithDom">
-              <button type="button" name="buttonWorkingWithDom" id="buttonWorkingWithDom"></button>
+              <button type="button" name="buttonWorkingWithDom" id="buttonWorkingWithDom">Change the paragraphs!</button>
             </form>
         </div>
       </article>
+    </section>
+
+    <section class="allArticles" id="ChangingElements">
+      <h2>2. Changing elements</h2>
+      <article class="articleContent" id="articleChangingAttributes">
+        <div class="divDescription">
+          <h3>Changing Attributes</h3>
+          <p>Once you have selected the element(s) you want to work with,
+            you can change their attributes. <br>
+            As we have seen in the previous lessons, we can change the text content
+            of an element using the innerHTML property. <br>
+            Similarly, we can change the attributes of elements. <br>
+            For example, we can change the src attribute of an image:</p>
+        </div>
+
+        <div class="divCode" id="divCodeChangeAttribute">
+          <code>
+            &lt;img id="myimg" src="orange.png" alt="" /&gt; <br>
+            &lt;script&gt; <br>
+            var el = document.getElementById("myimg"); <br>
+            el.src = "apple.png"; <br>
+            &lt;/script&gt;
+          </code>
+        </div>
+
+        <div class="divExample">
+          <h4>Example</h4>
+          <img src="https://media-cdn.tripadvisor.com/media/photo-s/06/8e/b9/77/captain-sifakis.jpg" alt="Sorry, the image cannot be found" id="imgChangeAttribute">
+          <p>Click on the following button to toggle the image</p>
+          <button type="button" name="buttonChangeAttribute" id="buttonChangeAttribute">Change it!</button>
+        </div>
+
+
+
+      </article>
+
+      <article class="articleContent" id="articleChangingStyles">
+        <div class="divDescription">
+          <h3>Changing Styles</h3>
+          <p>The style of HTML elements can also be changed using JavaScript. <br>
+            All style attributes can be accessed using the style object of the element. <br>
+            For example:</p>
+        </div>
+
+        <div class="divCode" id="divCodeChangeStyle">
+          <code>
+            &lt;div id="demo" style="width:200px"&gt;some text&lt;/div&gt; <br>
+            &lt;script&gt;<br>
+            var x = document.getElementById("demo");<br>
+            x.style.color = "6600FF";<br>
+            x.style.width = "100px";<br>
+            &lt;/script&gt;
+          </code>
+        </div>
+
+        <div class="divExample">
+          <h4>Example</h4>
+          <p>Click on the button to toggle the style of the previous code block</p>
+          <button type="button" name="buttonChangeStyle" id="buttonChangeStyle">Change it!</button>
+        </div>
+
+        <div class="divDescription">
+          <h5>Important note</h5>
+          <p><i>
+            All CSS properties can be set and modified using JavaScript.
+            Just remember, that you cannot use dashes (-) in the property names:
+            these are replaced with camelCase versions, where the compound words
+            begin with a capital letter.
+            For example: the background-color property should be referred to as backgroundColor.
+          </i></p>
+        </div>
+      </article>
+
     </section>
 
     <script type="text/javascript" src="main.js"></script>
