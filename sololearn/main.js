@@ -56,3 +56,12 @@ buttonChangeStyle.addEventListener("click", function () {
   // divCodeChangeStyle.style.backgroundColor = "#66ccff";
   // divCodeChangeStyle.style.borderColor = "blue";
 });
+
+// Creating Elements
+var buttonCreatingElements = document.getElementById("buttonCreatingElements");
+buttonCreatingElements.addEventListener("click", function () {
+  var inputCreatingElements = document.getElementById("inputCreatingElements");
+  var paragraphCreateElement = document.createElement("p");
+  var textValueCreateElement = document.createTextNode(inputCreatingElements.value);
+  console.log(inputCreatingElements.value);
+});

@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>Sololearn Practice file</h1>
-    <section class="allArticles" id="selectingElements">
+    <section class="allArticles" id="sectionSelectingElements">
       <h2>1. Selecting Elements</h2>
       <article class="articleContent">
         <h3>Selecting elements (1)</h3>
@@ -143,7 +143,7 @@
       </article>
     </section>
 
-    <section class="allArticles" id="ChangingElements">
+    <section class="allArticles" id="sectionChangingElements">
       <h2>2. Changing elements</h2>
       <article class="articleContent" id="articleChangingAttributes">
         <div class="divDescription">
@@ -205,12 +205,67 @@
         <div class="divDescription">
           <h5>Important note</h5>
           <p><i>
-            All CSS properties can be set and modified using JavaScript.
-            Just remember, that you cannot use dashes (-) in the property names:
+            All CSS properties can be set and modified using JavaScript.<br>
+            Just remember, that you cannot use dashes (-) in the property names:<br>
             these are replaced with camelCase versions, where the compound words
-            begin with a capital letter.
-            For example: the background-color property should be referred to as backgroundColor.
+            begin with a capital letter.<br>
+            For example: the <code>background-color</code> property should be referred to as <code>backgroundColor</code>.
           </i></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="allArticles" id="sectionAddingAndRemovingElements">
+      <h2>Adding and removing elements</h2>
+      <article class="articleContent">
+        <h3>CreatingElements</h3>
+        <div class="divDescription">
+          <p>Use the following methods to create new nodes:</p>
+          <ul>
+            <li><code>element.cloneNode()</code> clones an element and returns the resulting node.</li>
+            <li><code>document.createElement(element)</code> creates a new element node.</li>
+            <li><code>document.createTextNode(text)</code> creates a new text node.</li>
+          </ul>
+          <p>For example:</p>
+        </div>
+
+        <div class="divCode">
+          <code>var node = document.createTextNode("Some new text");</code>
+        </div>
+
+        <div class="divDescription">
+          <p>
+            This will create a new text node, but it will not appear in the document
+            until you append it to an existing element with one of the following methods:</p>
+            <ul>
+              <li>element.appendChild(newNode) adds a new child node to an element
+                as the last child node.</li>
+                <li>element.insertBefore(node1, node2) inserts node1 as a child before node2.</li>
+            </ul>
+        </div>
+
+        <div class="divCode">
+          <code>
+            &lt;div id ="demo"&gt;some content&lt;/div&gt;<br>
+            &lt;script&gt;<br>
+            //creating a new paragraph <br>
+            var p = document.createElement("p");<br>
+            var node = document.createTextNode("Some new text"); <br>
+            //adding the text to the paragraph <br>
+            p.appendChild(node); <br>
+            var div = document.getElementById("demo");<br>
+            //adding the paragraph to the div <br>
+            div.appendChild(p); <br>
+            &lt;/script&gt;
+          </code>
+        </div>
+
+        <div class="divExample">
+          <h4>Example</h4>
+          <form class="" action="" method="get">
+            <input type="text" name="inputCreatingElements" value="" id="inputCreatingElements">
+            <button type="button" name="buttonCreatingElements" id="buttonCreatingElements">Add the element!</button>
+          </form>
         </div>
       </article>
 
