@@ -260,12 +260,95 @@
           </code>
         </div>
 
-        <div class="divExample">
+        <div class="divExample" id="divCreatingElementsExample">
           <h4>Example</h4>
+          <p>Enter some text in the box below and see how it will append after you submit.</p>
           <form class="" action="" method="get">
             <input type="text" name="inputCreatingElements" value="" id="inputCreatingElements">
             <button type="button" name="buttonCreatingElements" id="buttonCreatingElements">Add the element!</button>
           </form>
+        </div>
+      </article>
+      <hr>
+
+      <article class="articleContent" id="articleRemovingElements">
+        <h3>Removing Elements</h3>
+        <div class="divDescription">
+          To remove an HTML element, you must select the parent of the element and
+          use the removeChild(node) method. <br> For example:
+        </div>
+
+        <div class="divCode">
+          <code>
+            &lt;div id="demo"&gt; <br>
+            &lt;p id="p1"&gt; <br>This is a paragraph.&lt;/p&gt; <br>
+            &lt;p id="p2"&gt; <br>This is another paragraph.&lt;/p&gt; <br>
+            &lt;/div&gt; <br> <br>
+
+            &lt;script&gt; <br>
+            var parent = document.getElementById("demo"); <br>
+            var child = document.getElementById("p1"); <br>
+            parent.removeChild(child); <br>
+            &lt;/script&gt; <br>
+          </code>
+        </div>
+
+        <div class="divDescription">
+          <p>
+            This removes the paragraph with id="p1" from the page. <br>
+            An alternative way of achieving the same result would be the use of
+            the parentNode property to get the parent of the element we want to remove:<br>
+            <code>var child = document.getElementById("p1"); <br>
+            child.parentNode.removeChild(child);</code>
+          </p>
+        </div>
+
+        <div class="divExample">
+          <h4>Example</h4>
+          <p>Click on the following icon to start removing all the elements within this article
+          of the page.</p>
+          <button type="button" name="buttonRemoveChild" id="buttonRemoveChild">Remove above element</button>
+
+        </div>
+
+      </article>
+
+      <article class="articleContent">
+        <h3>Replacing Elements</h3>
+        <div class="divDescription">
+          <p>
+            To replace an HTML element, the element.replaceChild(newNode, oldNode) method is used.
+            For example:
+          </p>
+        </div>
+
+        <div class="divCode">
+          <code>
+            &lt;div id="demo"&gt; <br>
+            &lt;p id="p1"&gt; <br>This is a paragraph.&lt;/p&gt; <br>
+            &lt;p id="p2"&gt; <br>This is another paragraph.&lt;/p&gt; <br>
+            &lt;/div&gt; <br>
+
+            &lt;script&gt; <br>
+            var p = document.createElement("p"); <br>
+            var node = document.createTextNode("This is new"); <br>
+            p.appendChild(node); <br>
+
+            var parent = document.getElementById("demo"); <br>
+            var child = document.getElementById("p1"); <br>
+            parent.replaceChild(p, child); <br>
+            &lt;/script&gt; <br>
+          </code>
+        </div>
+
+        <div class="divDescription">
+          <p>The code above creates a new paragraph element that replaces the existing p1 paragraph.</p>
+        </div>
+
+        <div class="divExample" id="divExampleReplaceChild">
+          <h4>Example</h4>
+          <p>Click on the button below to replace the text of the above heading</p>
+          <button type="button" name="buttonReplaceChild" id="buttonReplaceChild">Change the paragraph</button>
         </div>
       </article>
 

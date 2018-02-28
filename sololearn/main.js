@@ -63,5 +63,34 @@ buttonCreatingElements.addEventListener("click", function () {
   var inputCreatingElements = document.getElementById("inputCreatingElements");
   var paragraphCreateElement = document.createElement("p");
   var textValueCreateElement = document.createTextNode(inputCreatingElements.value);
-  console.log(inputCreatingElements.value);
+  paragraphCreateElement.appendChild(textValueCreateElement);
+  var divCreatingElementsExample = document.getElementById("divCreatingElementsExample");
+  divCreatingElementsExample.insertBefore(paragraphCreateElement, divCreatingElementsExample.childNodes[4]);
+});
+
+
+//Removing elements
+var buttonRemoveChild = document.getElementById("buttonRemoveChild");
+buttonRemoveChild.addEventListener("click", function () {
+  var articleRemovingElements = document.getElementById("articleRemovingElements");
+  articleRemovingElements.removeChild(articleRemovingElements.firstChild);
+  articleRemovingElements.removeChild(articleRemovingElements.firstChild);
+  //Two removals because the #text child node needs to be removed first
+});
+
+
+// Replacing elements
+var buttonReplaceChild = document.getElementById("buttonReplaceChild");
+buttonReplaceChild.addEventListener("click", function () {
+
+  var h4ExampleReplacement = document.createElement("h4");
+  var h4ExampleTextNode = document.createTextNode("This is the Example heading and I was changed!");
+  h4ExampleReplacement.appendChild(h4ExampleTextNode);
+
+  var divExampleReplaceChild = document.getElementById("divExampleReplaceChild");
+  var h4ExampleReplaced = divExampleReplaceChild.getElementsByTagName("h4")[0];
+  divExampleReplaceChild.replaceChild(h4ExampleReplacement, h4ExampleReplaced);
+  console.log(h4ExampleReplaced);
+
+
 });
