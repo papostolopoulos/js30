@@ -354,6 +354,108 @@
 
     </section>
 
+    <section class="allArticles" id="sectionCreatingAnimations">
+      <h2>Creating Animations</h2>
+      <article class="articleContent">
+        <h3>Animations</h3>
+        <div class="divDescription">
+
+          <p>
+            The following code defines a timer that calls the move() function
+            every 10 milliseconds:
+          </p>
+
+          <div class="divCode">
+            <code>var t = setInterval(move, 10);</code>
+          </div>
+
+          <p>
+            However, this makes our box move to the right forever.
+            To stop the animation when the box reaches the end of the container,
+            we add a simple check to the move() function and use the clearInterval()
+            method to stop the timer.
+          </p>
+
+          <div class="divCode">
+            <code>
+              function move() { <br>
+                if(pos >= 150) { <br>
+                  clearInterval(t); <br>
+                } <br>
+                else {<br>
+                  pos += 1;<br>
+                  box.style.left = pos+"px";<br>
+                }<br>
+              }
+            </code>
+          </div>
+
+          <p>
+            When the left attribute of the box reaches the value of 150,
+            the box reaches the end of the container,
+            based on a container width of 200 and a box width of 50.
+            The final code:
+          </p>
+
+          <div class="divCode">
+            <code>
+              var pos = 0; <br>
+              //our box element<br>
+              var box = document.getElementById("box");<br>
+              var t = setInterval(move, 10);<br>
+              <br>
+              function move() {<br>
+                if(pos >= 150) {<br>
+                  clearInterval(t);<br>
+                }<br>
+                else {<br>
+                  pos += 1;<br>
+                  box.style.left = pos+"px";<br>
+                }<br>
+              }
+            </code>
+          </div>
+        </div>
+
+
+        <div class="divExample">
+          <div class="" id="divExampleContainer">
+            <div class="" id="divBox">
+
+            </div>
+          </div>
+
+          <h4>Example</h4>
+          <p>Click on the button to see the box on the top moving from left to right</p>
+          <button type="button" name="buttonAnimate" id="buttonAnimate">Click to move the box.</button>
+        </div>
+
+      </article>
+    </section>
+
+
+
+
+
+    <section class="allArticles" id="sectionCreatingAnimations">
+      <h2></h2>
+      <article class="articleContent">
+        <h3></h3>
+        <div class="divDescription">
+
+        </div>
+
+        <div class="divCode">
+          <code></code>
+        </div>
+
+        <div class="divExample">
+          <h4></h4>
+        </div>
+
+      </article>
+    </section>
+
     <script type="text/javascript" src="main.js"></script>
 
   </body>
