@@ -426,7 +426,8 @@
           </div>
 
           <h4>Example</h4>
-          <p>Click on the button to see the box on the top moving from left to right</p>
+          <p>Click on the button to see the box on the top moving from left to right.
+            Click again to stop the move, and again to start it.</p>
           <button type="button" name="buttonAnimate" id="buttonAnimate">Click to move the box.</button>
         </div>
 
@@ -434,6 +435,122 @@
     </section>
 
 
+
+    <section class="allArticles" id="sectionCreatingAnimations">
+      <h2>Handling events</h2>
+
+
+      <article class="articleContent">
+        <h3>Events</h3>
+        <div class="divDescription">
+          <p>
+            You can write JavaScript code that executes when an event occurs,
+            such as when a user clicks an HTML element, moves the mouse,
+            or submits a form. When an event occurs on a target element,
+            a handler function is executed. A list of the DOM events can be found
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank">here</a>
+          </p>
+        </div>
+      </article>
+
+
+      <article class="articleContent">
+        <h3>Handling Events</h3>
+        <div class="divDescription">
+          <p>
+            Let's display an alert popup when the user clicks a specified button:
+          </p>
+        </div>
+
+        <div class="divCode">
+          <code>
+            &lt;button onclick="show()"&gt;Click Me&lt;/button&gt; <br>
+            &lt;script&gt; <br>
+            function show() { <br>
+              alert("Hi there"); <br>
+            } <br>
+            &lt;/script&gt; <br>
+          </code>
+        </div>
+
+         <div class="divDescription">
+           <p>Event handlers can be assigned to elements. For example:</p>
+         </div>
+
+         <div class="divCode">
+           <code>
+             var x = document.getElementById("demo"); <br>
+             x.onclick = function () { <br>
+               document.body.innerHTML = Date(); <br>
+             } <br>
+           </code>
+         </div>
+      </article>
+
+
+      <article class="articleContent">
+        <h3>Events (2)</h3>
+        <div class="divDescription">
+          <p>
+            The onload and onunload events are triggered when the user enters or
+            leaves the page. These can be useful when performing actions after the page is loaded.
+          </p>
+
+          <div class="divCode">
+            <code>
+              &lt;body onload="doSomething()"&gt;
+            </code>
+          </div>
+
+          <p>
+            Similarly, the window.onload event can be used to run code after the whole page is loaded.
+          </p>
+
+          <div class="divCode">
+            <code>
+              window.onload = function() { <br>
+                 //some code <br>
+              }
+            </code>
+          </div>
+
+          <p>
+            The onchange event is mostly used on textboxes. The event handler gets
+            called when the text inside the textbox changes and focus is lost from the element.
+            For example:
+          </p>
+
+          <div class="divCode">
+            <code>
+              &lt;input type="text" id="name" onchange="change()"&gt; <br>
+              &lt;script&gt; <br>
+              function change() { <br>
+               var x = document.getElementById("name"); <br>
+               x.value= x.value.toUpperCase(); <br>
+              } <br>
+              &lt;/script&gt; <br>
+            </code>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="articleContent">
+        <h3></h3>
+        <div class="divDescription">
+
+        </div>
+
+        <div class="divCode">
+          <code></code>
+        </div>
+
+        <div class="divExample">
+          <h4></h4>
+        </div>
+
+      </article>
+    </section>
 
 
 
