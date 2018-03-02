@@ -96,39 +96,27 @@ buttonReplaceChild.addEventListener("click", function () {
 
 // Animations
 var buttonAnimate = document.getElementById("buttonAnimate");
-buttonAnimate.addEventListener("click", function () {
-  var pos = 0;
+var box = document.getElementById("divBox");
+var interval;
+var pos = 0;
 var maxCounter = 0;
-  var box = document.getElementById("divBox");
-  var interval = setInterval(move, 10);
 
+buttonAnimate.addEventListener("click", function () {
+  if (typeof interval === "number") {
+    clearInterval(interval);
+    interval = "";
+    return;
+  }
 
-  /*If the position is less than 250 then start Adding
-  If it gets to 250, then maxCounter = 1
-  if maxcounter === 1 start removing
-  if it gets to 0 then maxCounter = 0
-  if maxCounter === 0 start adding
-  */
+  interval = setInterval(move, 10);
 
 
   function move() {
-    if (pos < 250 && maxCounter === 0) {
-      pos += 1;
-      box.style.left = pos + "px";
-    }
-    if (pos === 250) {
-      maxCounter = 1;
-    }
-    if (maxCounter === 1) {
-      pos -= 1;
-      box.style.left = pos + "px";
-    }
-    if (pos === 0) {
-      maxCounter = 0;
-    }
+    if (pos < 250 && maxCounter === 0) pos += 1, box.style.left = pos + "px";
+    if (pos === 250) maxCounter = 1;
+    if (maxCounter === 1) pos -= 1, box.style.left = pos + "px";
+    if (pos === 0) maxCounter = 0;
   }
-  console.log("working");
-
 
     // function move() {
     //   if (pos >= 250) {
