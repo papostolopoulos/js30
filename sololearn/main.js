@@ -128,3 +128,10 @@ buttonAnimate.addEventListener("click", function () {
     //   }
     // }
 });
+
+
+//Capitalize the content of the input after text is entered
+function capitalizeText() {
+  var inputCapitalize = document.getElementById("inputCapitalize");
+  inputCapitalize.value = inputCapitalize.value.toUpperCase();
+}

@@ -59,7 +59,30 @@
 
 <script>
   var key = document.getElementsByClassName("key");
-  console.log(key[3].childNodes[1].textContent);
+
+  function addEffect(letter){
+      var divKey = document.getElementsByClassName("key");
+      for(el of divKey){
+        let elLetter = el.firstElementChild.textContent.toLowerCase();
+        if(elLetter === letter) el.classList.add("playing");
+
+
+  }
+
+  window.onkeydown = (event)=>{
+    if (event.key === "a") addEffect("a");
+    if (event.key === "s") console.log("s");
+    if (event.key === "d") console.log("d");
+    if (event.key === "f") console.log("f");
+    if (event.key === "g") console.log("g");
+    if (event.key === "h") console.log("h");
+    if (event.key === "j") console.log("j");
+    if (event.key === "k") console.log("k");
+    if (event.key === "l") console.log("l");
+
+
+
+  };
   
 </script>
 

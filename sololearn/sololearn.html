@@ -532,6 +532,88 @@
             </code>
           </div>
         </div>
+
+        <div class="divExample">
+          <h4>Example</h4>
+          <p>
+            Enter some text in the text box below and see how it will turn into
+            uppercase as soon as you change location of the cursor (<code>onchange</code>);
+          </p>
+
+          <input type="text" name="inputCapitalize" value="" onchange="capitalizeText()" id="inputCapitalize" placeholder="Enter your text">
+        </div>
+      </article>
+
+
+      <article class="articleContent">
+        <h3>Event Listeners</h3>
+        <div class="divDescription">
+          <p>
+            The addEventListener() method attaches an event handler to an element
+            without overwriting existing event handlers. You can add many event
+            handlers to one element.
+            You can also add many event handlers of the same type to one element,
+            i.e., two "click" events.
+          </p>
+
+          <div class="divCode">
+            <code>
+              element.addEventListener(event, function, useCapture);
+            </code>
+          </div>
+
+          <p>
+            The first parameter is the event's type (like "click" or "mousedown").
+            The second parameter is the function we want to call when the event occurs.
+            The third parameter is a Boolean value specifying whether to use event
+            bubbling or event capturing. This parameter is optional,
+            and will be described in the next lesson.
+            Note that you don't use the "on" prefix for this event; use "click"
+            instead of "onclick".
+          </p>
+
+          <div class="divCode">
+            <code>
+              element.addEventListener("click", myFunction); <br>
+              element.addEventListener("mouseover", myFunction); <br>
+
+              function myFunction() { <br>
+                alert("Hello World!"); <br>
+              } <br>
+            </code>
+          </div>
+
+          <p>
+            This adds two event listeners to the element.
+            We can remove one of the listeners:
+          </p>
+
+          <div class="divCode">
+            <code>
+              element.removeEventListener("mouseover", myFunction);
+            </code>
+          </div>
+
+          <p>
+            Let's create an event handler that removes itself after being executed:
+          </p>
+
+          <div class="divCode">
+            <code>
+              &lt;button id="demo"&gt;Start&lt;/button&gt; <br> <br>
+
+              &lt;script&gt; <br>
+              var btn = document.getElementById("demo"); <br>
+              btn.addEventListener("click", myFunction); <br>
+
+              function myFunction() { <br>
+                alert(Math.random()); <br>
+                btn.removeEventListener("click", myFunction); <br>
+              } <br>
+              &lt;/script&gt;
+            </code>
+          </div>
+        </div>
       </article>
 
 
