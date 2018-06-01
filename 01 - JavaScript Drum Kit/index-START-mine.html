@@ -59,15 +59,18 @@
 
 <script>
   let divKey = document.getElementsByClassName("key");
+  let tagsKbd = document.getElementsByTagName(`kbd`);
 
   function addEffect(letter){
+    console.log(document.getElementsByTagName(`kbd`));
     for(el of divKey){
       var elLetter = el.firstElementChild.textContent.toLowerCase();
       var elSound = el.lastElementChild.textContent;
-      // document.querySelector(`audio[src="sounds/clap.wav"]`);
+      var selectSound = document.querySelector(`audio[src="sounds/${elSound}.wav"]`);
       if(elLetter === letter) {
         el.classList.add("playing");
-
+        selectSound.play();
+        // var timeout = setTimeout(() => { removeEffect(letter); }, 2000);
       }
     }
   }
@@ -75,15 +78,23 @@
   function removeEffect(letter) {
     for(el of divKey){
       var elLetter = el.firstElementChild.textContent.toLowerCase();
-      if(elLetter === letter) el.classList.remove("playing");
+      var elSound = el.lastElementChild.textContent;
+      var selectSound = document.querySelector(`audio[src="sounds/${elSound}.wav"]`);
+      if(elLetter === letter) {
+        el.classList.remove("playing");
+        selectSound.pause();
+        selectSound.currentTime = 0;
+      }
     }
   }
 
 
 
+
+
   window.onkeydown = event => addEffect(event.key);
   window.onkeyup = event => removeEffect(event.key);
-//b
+
 </script>
 
 
