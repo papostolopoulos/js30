@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JS Drum Kit</title>
-  <link rel="stylesheet" href="style.css">
+  <title>JS Drum Kit - Paris Apostolopoulos version</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="style-mine.css">
 </head>
 <body>
 
@@ -59,10 +60,8 @@
 
 <script>
   let divKey = document.getElementsByClassName("key");
-  let tagsKbd = document.getElementsByTagName(`kbd`);
 
   function addEffect(letter){
-    console.log(document.getElementsByTagName(`kbd`));
     for(el of divKey){
       var elLetter = el.firstElementChild.textContent.toLowerCase();
       var elSound = el.lastElementChild.textContent;
@@ -87,9 +86,6 @@
       }
     }
   }
-
-
-
 
 
   window.onkeydown = event => addEffect(event.key);
