@@ -58,32 +58,32 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-  var key = document.getElementsByClassName("key");
+  let divKey = document.getElementsByClassName("key");
 
   function addEffect(letter){
-      var divKey = document.getElementsByClassName("key");
-      for(el of divKey){
-        let elLetter = el.firstElementChild.textContent.toLowerCase();
-        if(elLetter === letter) el.classList.add("playing");
+    for(el of divKey){
+      var elLetter = el.firstElementChild.textContent.toLowerCase();
+      var elSound = el.lastElementChild.textContent;
+      // document.querySelector(`audio[src="sounds/clap.wav"]`);
+      if(elLetter === letter) {
+        el.classList.add("playing");
 
-
+      }
+    }
   }
 
-  window.onkeydown = (event)=>{
-    if (event.key === "a") addEffect("a");
-    if (event.key === "s") console.log("s");
-    if (event.key === "d") console.log("d");
-    if (event.key === "f") console.log("f");
-    if (event.key === "g") console.log("g");
-    if (event.key === "h") console.log("h");
-    if (event.key === "j") console.log("j");
-    if (event.key === "k") console.log("k");
-    if (event.key === "l") console.log("l");
+  function removeEffect(letter) {
+    for(el of divKey){
+      var elLetter = el.firstElementChild.textContent.toLowerCase();
+      if(elLetter === letter) el.classList.remove("playing");
+    }
+  }
 
 
 
-  };
-  
+  window.onkeydown = event => addEffect(event.key);
+  window.onkeyup = event => removeEffect(event.key);
+
 </script>
 
 
