@@ -63,33 +63,27 @@
 
   function addEffect(letter){
     for(el of divKey){
-      var elLetter = el.firstElementChild.textContent.toLowerCase();
-      var elSound = el.lastElementChild.textContent;
-      var selectSound = document.querySelector(`audio[src="sounds/${elSound}.wav"]`);
+      let elLetter = el.firstElementChild.textContent.toLowerCase();
+      let elSound = el.lastElementChild.textContent;
+      let selectSound = document.querySelector(`audio[src="sounds/${elSound}.wav"]`);
       if(elLetter === letter) {
         el.classList.add("playing");
+        selectSound.currentTime = 0;
         selectSound.play();
-        // var timeout = setTimeout(() => { removeEffect(letter); }, 2000);
+        setTimeout(() => removeEffect(letter), 50);
       }
     }
   }
 
   function removeEffect(letter) {
     for(el of divKey){
-      var elLetter = el.firstElementChild.textContent.toLowerCase();
-      var elSound = el.lastElementChild.textContent;
-      var selectSound = document.querySelector(`audio[src="sounds/${elSound}.wav"]`);
-      if(elLetter === letter) {
-        el.classList.remove("playing");
-        selectSound.pause();
-        selectSound.currentTime = 0;
-      }
+      let elLetter = el.firstElementChild.textContent.toLowerCase();
+      if(elLetter === letter) el.classList.remove("playing");
     }
   }
 
 
-  window.onkeydown = event => addEffect(event.key);
-  window.onkeyup = event => removeEffect(event.key);
+  window.onkeydown = event => addEffect(event.key.toLowerCase());
 
 </script>
 

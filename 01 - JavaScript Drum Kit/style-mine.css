@@ -24,17 +24,29 @@ body,html {
   margin: 1rem;
   padding: 1rem .5rem;
   transition: all .07s ease;
-
+  width: 10rem;
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  color: white;
 }
 
 .playing {
+  transform: scale(1.1);
+  transform: rotate(0.05turn);
+  border-color: red;
+  box-shadow: 0 0 1rem red;
+  color: red;
 
 }
 
 kbd {
-
+  display: block;
+  font-size: 4rem;
 }
 
 .sound {
-
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: red;
 }
