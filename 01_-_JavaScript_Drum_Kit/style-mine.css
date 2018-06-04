@@ -31,8 +31,7 @@ body,html {
 }
 
 .playing {
-  transform: scale(1.1);
-  transform: rotate(0.05turn);
+  transform: scale(1.1) rotate(0.05turn);
   border-color: red;
   box-shadow: 0 0 1rem red;
   color: red;
