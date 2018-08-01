@@ -57,10 +57,36 @@
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
+
+<!-- IMPORTANT
+LOOKUP KEYCODE.INFO
+2. LOOKUP "DATA" ATTRIBUTE IN HTML
+3. READ ABOUT .CLASSLIST IN JAVASCRIPT
+4. READ ABOUT TRANSITIONEND-->
 <script>
-  var key = document.getElementsByClassName("key");
-  console.log(key[3].childNodes[1].textContent);
-  
+  window.addEventListener("keydown", function(e) {
+
+    // Audio event
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    if (!audio) return; //stop function if the key pressed is irrelevant
+    audio.currentTime = 0; //Rewind to the start
+    audio.play();
+
+    // Animation event - Add the animation
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    key.classList.add("playing");
+  });
+
+
+  // Animation event, remove the animation
+  const keys = document.querySelectorAll(".key");
+  keys.forEach(key=>{
+    key.addEventListener("transitionend", e=>{
+      if (e.propertyName !== "transformed") return;
+      key.classList.remove("playing");
+    });
+  });
+
 </script>
 
 
