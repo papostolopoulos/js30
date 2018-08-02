@@ -4,59 +4,84 @@
     <meta charset="utf-8">
     <title>Drum kit in Vue.js</title>
     <script src="vue.js"></script>
+
+    <style media="screen">
+      .units {
+        color: red;
+        display: inline-block;
+      }
+    </style>
+
   </head>
   <body>
+
+    <div id="boxes">
+      <div v-for="el in letters">
+        {{el.text}}
+      </div>
+
+      <unit v-for="el in letters" :letter="el" :key="el.id" class="units"></unit>
+    </div>
+
 
 
 
     <script>
+
+      Vue.component("unit", {
+        props: ["letter"],
+        template: "<div>{{letter.text}}</div>"
+      });
+
       new Vue({
-        el: "#letters",
+        el: "#boxes",
         data: {
           letters: [
             {
-              letter: "A",
+              text: "A",
               dataKey: 65,
               sound: "clap"
             },
             {
-              letter: "S",
+              text: "S",
               dataKey: "83",
               sound: "hihat"
             },
             {
-              letter: "D",
+              text: "D",
               dataKey: 68,
               sound: "kick"
             },
             {
-              letter: "F",
+              text: "F",
               dataKey: 70,
               sound: "openhat"
             },
             {
-              letter: "G",
+              text: "G",
               dataKey: 71,
               sound: "boom"
             },
             {
-              letter: "H",
+              text: "H",
               dataKey: 72,
               sound: "ride"
             },
             {
-              letter: "J",
+              text: "J",
               dataKey: 74,
               sound: "snare"
-            }.
+            },
             {
-              letter: "K",
+              text: "K",
               dataKey: 75,
               sound: "tom"
             },
-            letter: "L",
-            dataKey: 76,
-            sound: "tink"
+            {
+              text: "L",
+              dataKey: 76,
+              sound: "tink"
+            }
           ]
         }
 
