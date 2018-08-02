@@ -80,12 +80,13 @@ LOOKUP KEYCODE.INFO
 
   // Animation event, remove the animation
   const keys = document.querySelectorAll(".key");
-  keys.forEach(key=>{
-    key.addEventListener("transitionend", e=>{
-      if (e.propertyName !== "transformed") return;
-      key.classList.remove("playing");
-    });
-  });
+  keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+
+  function
+  removeTransition(e){
+    if (e.propertyName !== "transform") return;
+    this.classList.remove("playing");
+  }
 
 </script>
 
