@@ -23,7 +23,7 @@
         display: inline-block;
         border: 5px solid black;
         background-color: rgba(255, 0, 0, .5);
-        margin: 10px;
+        margin: auto;
         padding: 5px;
         min-width: 90px;
         width: 12vh;
@@ -39,20 +39,19 @@
       }
 
       #boxes{
-        width: 100%;
-        margin: auto;
-        text-align: center;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
+        display: flex;
+        flex: 1;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+
       }
     </style>
 
   </head>
   <body>
 
-    <div id="boxes">
+    <div id="boxes" v-on:keydown="makeMagic($event)">
       <!-- <div v-for="el in letters">
         {{el.text}}
       </div> -->
@@ -83,22 +82,12 @@
         props: ["letter"],
         template:
         `<div>
-          <h1 :data-key="letter.dataKey" v-on:click="makeMagic($event)">
+          <h1 :data-key="letter.dataKey">
             {{letter.text}}
           </h1>
           <span>{{letter.sound}}</span>
           </div>
-        `,
-        computed: {
-          makeMagic: function(event){
-            console.log(this);
-          }
-        },
-        methods: {
-          testMe: function(){
-            console.log("tested")
-          }
-        }
+        `
       });
 
       Vue.component("sound", {
@@ -157,6 +146,11 @@
               sound: "tink"
             }
           ]
+        },
+        methods: {
+          makeMagic: function(event){
+            console.log("The event:", event.key);
+          }
         }
 
       });
