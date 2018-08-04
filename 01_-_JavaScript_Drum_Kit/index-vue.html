@@ -6,14 +6,13 @@
     <script src="vue.js"></script>
 
     <style media="screen">
-      html, body {
+      html {
         margin: 0;
-        padding: 0
-      }
-
-      body {
+        padding: 0;
         font-family: arial;
         font-size: 150%;
+        background: url(./drummer-vue.jpg);
+        background-size: cover;
       }
 
       h1 {
@@ -21,19 +20,27 @@
       }
 
       .units {
-        color: red;
         display: inline-block;
-        border: 5px solid red;
+        border: 5px solid black;
+        background-color: rgba(255, 0, 0, .5);
         margin: 10px;
         padding: 5px;
         min-width: 90px;
+        width: 12vh;
         text-align: center;
+        transition: all 0.07s ease;
+      }
+
+      .units:hover {
+        transform: scale(1.1);
+        border-color: #808080;
+        color: #808080;
+        background-color: rgba(255, 0, 0, .2);
       }
 
       #boxes{
         width: 100%;
         margin: auto;
-        background-color: pink;
         text-align: center;
         position: absolute;
         transform: translate(-50%, -50%);
@@ -50,8 +57,22 @@
         {{el.text}}
       </div> -->
 
-      <unit v-for="el in letters" :letter="el" :key="el.id" class="units"></unit>
+      <unit
+      v-for="el in letters"
+      :letter="el"
+      :key="el.id"
+      class="units">
+      </unit>
+
+
+      <sound
+      v-for="el in letters"
+      :drum="el" :key="el.id"
+      :data-key="el.dataKey"
+      :src="'sounds/'+el.sound+'.wav'">
+      </sound>
     </div>
+
 
 
 
@@ -62,18 +83,29 @@
         props: ["letter"],
         template:
         `<div>
-          <h1 :data-key="letter.dataKey">
+          <h1 :data-key="letter.dataKey" v-on:click="makeMagic($event)">
             {{letter.text}}
           </h1>
           <span>{{letter.sound}}</span>
           </div>
-        `
+        `,
+        computed: {
+          makeMagic: function(event){
+            console.log(this);
+          }
+        },
+        methods: {
+          testMe: function(){
+            console.log("tested")
+          }
+        }
       });
 
-      // Vue.component("sound", {
-      //   props: [""],
-      //   template: `<audio></audio>`
-      // });
+      Vue.component("sound", {
+        props: ["drum"],
+        template: `<audio></audio>`
+      });
+
 
       new Vue({
         el: "#boxes",
