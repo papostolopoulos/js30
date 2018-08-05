@@ -107,7 +107,7 @@
             },
             {
               text: "S",
-              dataKey: "83",
+              dataKey: 83,
               sound: "hihat"
             },
             {
@@ -151,6 +151,12 @@
           makeMagic: function(event){
             console.log("The event:", event.key);
           }
+        },
+        mounted: function() {
+          var vm = this;
+          window.addEventListener('keydown', function(e) {
+            console.log("In mounted function", e.keyCode);
+          })
         }
 
       });
