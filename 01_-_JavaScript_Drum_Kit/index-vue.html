@@ -154,16 +154,15 @@
             }
           ]
         },
-        methods: {
-          makeMagic: function(event){
-            console.log("The event:", event.key);
-          }
-        },
         mounted: function() {
           var vm = this;
+          var dataKeys = vm.letters.map((el)=>el.dataKey);
           window.addEventListener('keydown', function(e) {
+            console.log(dataKeys);
             console.log("In mounted function", e.keyCode);
-          })
+            if (dataKeys.includes(e.keyCode)) console.log("included");
+
+          });
         }
 
       });
