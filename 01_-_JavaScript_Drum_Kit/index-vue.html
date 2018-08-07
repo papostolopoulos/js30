@@ -23,7 +23,7 @@
         display: inline-block;
         border: 5px solid black;
         background-color: rgba(255, 0, 0, .5);
-        margin: auto;
+        margin: 10px;
         padding: 5px;
         min-width: 90px;
         width: 12vh;
@@ -31,11 +31,11 @@
         transition: all 0.07s ease;
       }
 
-      .units:hover {
-        transform: scale(1.1);
-        border-color: #808080;
-        color: #808080;
-        background-color: rgba(255, 0, 0, .2);
+      .units_play {
+        transform: scale(1.3);
+        border-color: rgb(255, 0, 0);
+        color: rgb(255, 0, 0);
+        background-color: rgba(0, 0, 0, .5);
       }
 
       #boxes{
@@ -59,15 +59,12 @@
   <body>
 
     <div id="boxes">
-      <!-- <div v-for="el in letters">
-        {{el.text}}
-      </div> -->
 
       <unit
       v-for="el in letters"
       :letter="el"
       :key="el.id"
-      class="units">
+      :class="['units' , {units_play: playing}]">
       </unit>
 
 
@@ -88,8 +85,8 @@
       Vue.component("unit", {
         props: ["letter"],
         template:
-        `<div>
-          <h1 :data-key="letter.dataKey">
+        `<div :data-key="letter.dataKey">
+          <h1>
             {{letter.text}}
           </h1>
           <span>{{letter.sound}}</span>
@@ -152,16 +149,33 @@
               dataKey: 76,
               sound: "tink"
             }
-          ]
+          ],
+          playing: false
         },
         mounted: function() {
+
+           //Create array with keys' numeric value
           var vm = this;
           var dataKeys = vm.letters.map((el)=>el.dataKey);
-          window.addEventListener('keydown', function(e) {
-            console.log(dataKeys);
-            console.log("In mounted function", e.keyCode);
-            if (dataKeys.includes(e.keyCode)) console.log("included");
 
+          // Add an event listener at the global level to monitor the key presses
+          window.addEventListener('keydown', function(e) {
+
+
+            if (dataKeys.includes(e.keyCode)) {
+              //Animation
+              var animDiv = document.querySelector(`div[data-key="${e.keyCode}"]`);
+
+              setTimeout(function() {
+                animDiv.classList.remove("units_play");
+              }, 50);
+
+              //Sound play
+              var playSound = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+              animDiv.classList.add("units_play");
+              playSound.currentTime = 0;
+              playSound.play();
+            }
           });
         }
 
