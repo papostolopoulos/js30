@@ -2,77 +2,101 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Clock - Vanilla JS</title>
+    <title>Clock - vanilla JS</title>
 
     <style media="screen">
       body{
-        background: url(clock-vanilla.jpg);
+        background-image: url(clock-vanilla.jpg);
         background-size: cover;
-        font-family: helvetica;
-        min-height: 100vh;
+        box-sizing: border-box;
         display: flex;
-        align-content: center;
-     }
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
 
-     .clock{
-       width: 30rem;
-       height: 30rem;
-       margin: auto;
-       border: 20px solid red;
-       padding: 20px;
-       background-color: rgba(255, 0, 0, .2);
-       border-radius: 50%;
-     }
+      .clock-body {
+        width: 50vh;
+        height: 50vh;
+        background-color: rgba(255, 0, 0, .2);
+        border-radius: 50%;
+        border: 20px solid red;
+        padding: 2px;
+        position: relative;
+      }
 
-     .face{
-       background-color: yellow;
-       position: relative;
-       width: 100%;
-       height: 100%;
-     }
+      .clock-face {
+        width: 100%;
+        height: 100%;
+        /* background-color: rgba(255, 255, 0, .5); */
+        position: relative;
+      }
 
-     .hour{
-       height: 15px;
-       width: 40%;
-       background-color: black;
-       position: absolute;
-       top: 50%;
-       left: 50%;
-       /* transform: translateY(-3px); */
-     }
+      .clock-overlay {
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: rgba(0,0,0,.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
 
-     .minute{
-       height: 10px;
-       width: 50%;
-       background-color: green;
-       position: absolute;
-       top: 50%;
-       left: 50%;
-       /* transform: translateY(-3px); */
-       transform: rotate(300deg);
-     }
+      .hours{
+        height: 45%;
+        background-color: black;
+        width: 5%;
+        position: absolute;
+        left: 47.5%;
+        top: 5%;
+        transition: transform 4s;
+      }
 
-     .second{
-       height: 5px;
-       width: 50%;
-       background-color: blue;
-       position: absolute;
-       top: 50%;
-       left: 50%;
-       /* transform: translateY(-3px); */
-     }
+      .hours:hover {
+        transform: rotate(360deg);
+        transform-origin: bottom;
+      }
+
+      .minutes{
+        height: 50%;
+        background-color: blue;
+        width: 3%;
+        position: absolute;
+        left: 48.5%;
+        transition: transform 3s;
+      }
+
+      .minutes:hover {
+        transform: rotate(360deg);
+        transform-origin: bottom;
+      }
+
+      .seconds{
+        height: 50%;
+        background-color: green;
+        width: 1%;
+        position: absolute;
+        left: 49.5%;
+        transition: transform 3s;
+      }
+
+      .seconds:hover {
+        transform: rotate(360deg);
+        transform-origin: bottom;
+      }
     </style>
   </head>
   <body>
-    <div class="clock">
-      <div class="face">
-        <div class="hour"></div>
-        <div class="minute"></div>
-        <div class="second"></div>
+    <div class="clock-body">
+      <div class="clock-face">
+        <div class="hours"></div>
+        <div class="minutes"></div>
+        <div class="seconds"></div>
       </div>
-
+      <div class="clock-overlay">
 
       </div>
     </div>
+
   </body>
 </html>
