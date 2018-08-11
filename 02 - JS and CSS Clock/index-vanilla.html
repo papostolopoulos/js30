@@ -29,9 +29,8 @@
       .clock-body {
         width: 50vh;
         height: 50vh;
-        background-color: rgba(255, 0, 0, .2);
         border-radius: 50%;
-        border: 20px solid red;
+        border: 3vh solid red;
         padding: 2px;
         position: relative;
       }
@@ -39,7 +38,6 @@
       .clock-face {
         width: 100%;
         height: 100%;
-        /* background-color: rgba(255, 255, 0, .5); */
         position: relative;
       }
 
@@ -47,23 +45,23 @@
         width: 100%;
         height: 100%;
         z-index: -1;
-        background-color: rgba(0,0,0,.2);
+        background-color: rgba(255, 255, 255, .5);
+        border-radius: 50%;
         position: absolute;
         top: 0;
         left: 0;
       }
 
-      .top_quarter, .middle_quarter, .bottom_quarter {
+      .top_third, .middle_third, .bottom_third {
         width: 100%;
         height: 33.33%;
       }
 
-      .top_quarter {
+      .top_third {
         text-align: center;
       }
 
-      .middle_quarter {
-        background-color: white;
+      .middle_third {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -92,8 +90,16 @@
         justify-content: flex-end;
       }
 
-      .bottom_quarter{
-        line-height: 100%;
+      .bottom_third{
+        position: relative;
+        text-align: center;
+      }
+
+      .bottom_third span{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
       }
 
       .center_dot {
@@ -101,71 +107,77 @@
         height: 30%;
         background-color: black;
         border-radius: 50%;
+        z-index: 1;
       }
 
-      .hours{
+      #hours{
         height: 45%;
         background-color: black;
         width: 5%;
         position: absolute;
         left: 47.5%;
         top: 5%;
-        transition: transform 4s;
-      }
-
-      .hours:hover {
-        transform: rotate(360deg);
+        /* transition: all 0.05s; */
         transform-origin: bottom;
       }
 
-      .minutes{
+      /* #hours:hover {
+        transform: rotate(360deg);
+        transform-origin: bottom;
+      } */
+
+      #minutes{
         height: 50%;
-        background-color: blue;
+        background-color: black;
         width: 3%;
         position: absolute;
         left: 48.5%;
-        transition: transform 3s;
-      }
-
-      .minutes:hover {
-        transform: rotate(360deg);
+        /* transition: all 0.05s; */
         transform-origin: bottom;
       }
 
-      .seconds{
+      /* #minutes:hover {
+        transform: rotate(360deg);
+        transform-origin: bottom;
+      } */
+
+      #seconds{
         height: 50%;
-        background-color: green;
+        background-color: black;
         width: 1%;
         position: absolute;
         left: 49.5%;
-        transition: transform 3s;
-      }
-
-      .seconds:hover {
-        transform: rotate(360deg);
+        /* transition: all 0.05s; */
         transform-origin: bottom;
       }
+
+      /* #seconds:hover {
+        transform: rotate(360deg);
+        transform-origin: bottom;
+      } */
     </style>
   </head>
   <body>
     <div class="clock-body">
 
       <div class="clock-face">
-        <div class="hours"></div>
-        <div class="minutes"></div>
-        <div class="seconds"></div>
+        <div id="hours"></div>
+        <div id="minutes"></div>
+        <div id="seconds"></div>
       </div>
 
       <div class="clock-overlay">
-        <div class="top_quarter">12</div>
-        <div class="middle_quarter">
+        <div class="top_third">12</div>
+        <div class="middle_third">
           <div class="middle1">9</div>
           <div class="middle2">
             <div class="center_dot"></div>
           </div>
           <div class="middle3">3</div>
         </div>
-        <div class="bottom_quarter">6</div>
+        <div class="bottom_third">
+          <span>6</span>
+        </div>
       </div>
     </div>
 
@@ -173,13 +185,27 @@
 
 
 
-
     <script>
-      function playTime() {
 
+      var hoursPointer = document.getElementById("hours");
+      var minutesPointer = document.getElementById("minutes");
+      var secondsPointer = document.getElementById("seconds");
+
+      function playTime() {
+        var newDate = new Date();
+        var getTheHours = newDate.getHours();
+        var getTheMinutes = newDate.getMinutes();
+        var getTheSeconds = newDate.getSeconds();
+        var secondsTurn = (360 / 60) * getTheSeconds;
+        var minutesTurn = (360 / 60) * getTheMinutes + (secondsTurn / 60);
+        var hoursTurn = (360 / 60) * getTheHours + (minutesTurn / 60) + ((secondsTurn / 60) / 60);
+
+        secondsPointer.style.transform = `rotate(${secondsTurn}deg)`
+        minutesPointer.style.transform = `rotate(${minutesTurn}deg)`
+        hoursPointer.style.transform = `rotate(${hoursTurn}deg)`
       }
 
-
+      setInterval(playTime, 1000);
       playTime();
     </script>
 
