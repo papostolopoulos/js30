@@ -13,6 +13,17 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        font-family: verdana, helvetica, serif;
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+        font-size: 8vh;
+      }
+
+      h1{
+        padding: 0;
+        margin: 0;
+        font-size: 8vh;
       }
 
       .clock-body {
@@ -40,6 +51,56 @@
         position: absolute;
         top: 0;
         left: 0;
+      }
+
+      .top_quarter, .middle_quarter, .bottom_quarter {
+        width: 100%;
+        height: 33.33%;
+      }
+
+      .top_quarter {
+        text-align: center;
+      }
+
+      .middle_quarter {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .middle1, .middle2, .middle3{
+        width: 33.33%;
+        height: 100%;
+      }
+
+      .middle1 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .middle2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .middle3{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .bottom_quarter{
+        line-height: 100%;
+      }
+
+      .center_dot {
+        width: 30%;
+        height: 30%;
+        background-color: black;
+        border-radius: 50%;
       }
 
       .hours{
@@ -88,15 +149,39 @@
   </head>
   <body>
     <div class="clock-body">
+
       <div class="clock-face">
         <div class="hours"></div>
         <div class="minutes"></div>
         <div class="seconds"></div>
       </div>
-      <div class="clock-overlay">
 
+      <div class="clock-overlay">
+        <div class="top_quarter">12</div>
+        <div class="middle_quarter">
+          <div class="middle1">9</div>
+          <div class="middle2">
+            <div class="center_dot"></div>
+          </div>
+          <div class="middle3">3</div>
+        </div>
+        <div class="bottom_quarter">6</div>
       </div>
     </div>
+
+
+
+
+
+
+    <script>
+      function playTime() {
+
+      }
+
+
+      playTime();
+    </script>
 
   </body>
 </html>
