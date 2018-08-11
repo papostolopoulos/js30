@@ -198,7 +198,7 @@
         var getTheSeconds = newDate.getSeconds();
         var secondsTurn = (360 / 60) * getTheSeconds;
         var minutesTurn = (360 / 60) * getTheMinutes + (secondsTurn / 60);
-        var hoursTurn = (360 / 60) * getTheHours + (minutesTurn / 60) + ((secondsTurn / 60) / 60);
+        var hoursTurn = (360 / 12) * getTheHours + (minutesTurn / 12);
 
         secondsPointer.style.transform = `rotate(${secondsTurn}deg)`
         minutesPointer.style.transform = `rotate(${minutesTurn}deg)`
